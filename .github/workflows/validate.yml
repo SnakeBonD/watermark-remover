@@ -1,0 +1,39 @@
+name: Validate v0.1
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check required files
+        run: |
+          test -f index.html
+          test -f styles.css
+          test -f app.js
+          test -f favicon.svg
+      - name: Check JavaScript syntax
+        run: node --check app.js
+      - name: Verify local-only processing
+        run: |
+          if grep -En 'fetch\(|XMLHttpRequest|sendBeacon|WebSocket' app.js; then
+            echo "Network API found in image processing code"
+            exit 1
+          fi
+      - name: Verify privacy disclosures
+        run: |
+          grep -q 'jamais transmis' index.html
+          grep -q 'SynthID' index.html
+          grep -q 'Usage autorisé' index.html
+      - name: Verify page metadata
+        run: |
+          grep -q 'name="viewport"' index.html
+          grep -q 'name="description"' index.html
+          grep -q 'rel="icon"' index.html

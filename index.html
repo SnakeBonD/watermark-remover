@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090b10">
+  <meta name="description" content="Nettoyez localement la marque visible de vos créations Gemini autorisées.">
+  <title>WATERMARK REMOVER — SnakeBonD</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="WATERMARK REMOVER, accueil">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span>WATERMARK <b>REMOVER</b></span>
+    </a>
+    <div class="privacy"><span></span> Traitement 100 % local</div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">OUTIL PRIVÉ · AUCUN ENVOI</p>
+      <h1 id="page-title">Retirez la marque visible.<br><em>Gardez chaque pixel chez vous.</em></h1>
+      <p>Pour vos propres créations Gemini, Nano Banana et Imagen. Le fichier reste dans votre navigateur du début à la fin.</p>
+    </section>
+
+    <section class="workspace" aria-label="Outil de traitement d’image">
+      <div class="tabs" role="tablist" aria-label="Type de média">
+        <button class="tab active" role="tab" aria-selected="true">Images</button>
+        <button class="tab" role="tab" aria-selected="false" disabled>Vidéos <small>BIENTÔT</small></button>
+      </div>
+
+      <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-describedby="formats privacy-note">
+        <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+        <div class="drop-icon" aria-hidden="true"><span>+</span></div>
+        <h2>Déposez une image ici</h2>
+        <p>ou <span class="linklike">choisissez un fichier</span></p>
+        <p id="formats" class="formats">PNG, JPG ou WebP · 25 Mo maximum</p>
+      </div>
+
+      <div id="editor" class="editor" hidden>
+        <div class="editor-head">
+          <div>
+            <p class="label">FICHIER LOCAL</p>
+            <h2 id="fileName">image.png</h2>
+            <p id="fileMeta" class="meta"></p>
+          </div>
+          <button id="newFile" class="ghost">Changer d’image</button>
+        </div>
+        <div class="comparison" id="comparison">
+          <img id="originalImage" alt="Image originale">
+          <div class="result-layer" id="resultLayer"><canvas id="resultCanvas" aria-label="Résultat du traitement"></canvas></div>
+          <div class="divider" id="divider"><span aria-hidden="true">↔</span></div>
+          <span class="badge before">AVANT</span><span class="badge after">APRÈS</span>
+          <input id="compareRange" type="range" min="0" max="100" value="50" aria-label="Comparer l’image avant et après">
+        </div>
+        <div id="status" class="status" role="status">Image prête. Lancez l’analyse locale.</div>
+        <div class="actions">
+          <button id="processBtn" class="primary"><span aria-hidden="true">✦</span> Analyser et nettoyer</button>
+          <button id="downloadBtn" class="secondary" disabled>Télécharger le PNG</button>
+        </div>
+      </div>
+
+      <p id="privacy-note" class="privacy-note"><b>Confidentiel par conception.</b> Le contenu de votre image, son nom et ses pixels ne sont jamais transmis.</p>
+    </section>
+
+    <section class="trust" aria-label="Garanties">
+      <article><span>01</span><div><h3>Local uniquement</h3><p>Le traitement s’exécute dans ce navigateur.</p></div></article>
+      <article><span>02</span><div><h3>Original préservé</h3><p>Votre fichier source n’est jamais écrasé.</p></div></article>
+      <article><span>03</span><div><h3>Résultat honnête</h3><p>Un fichier incompatible est signalé, pas maquillé.</p></div></article>
+    </section>
+
+    <aside class="legal"><b>Usage autorisé uniquement.</b> Utilisez cet outil pour vos créations, les médias libres de droits ou ceux que vous êtes autorisé à modifier. Il ne supprime pas SynthID ni les informations invisibles de provenance IA.</aside>
+  </main>
+  <footer><span>SnakeBonD AI STUDIO</span><span>v0.1 · 2026</span></footer>
+  <script src="alpha-profile.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

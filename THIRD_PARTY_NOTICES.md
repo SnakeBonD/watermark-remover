@@ -1,11 +1,13 @@
 # Third-party notices
 
-## Gemini Watermark Remover alpha profile
+## Gemini Watermark Remover engine
 
-The calibrated alpha profile in `alpha-profile.js` is derived from
+The catalog, alpha profiles, detection and restoration engine under
+`vendor/gemini-watermark-remover/` are derived from
 [GargantuaX/gemini-watermark-remover](https://github.com/GargantuaX/gemini-watermark-remover),
 which credits the original work to AllenK (Kwyshell).
 
+Copyright (c) 2025 Jad
 Copyright (c) 2024 AllenK (Kwyshell)
 
 Licensed under the MIT License. Permission is hereby granted, free of charge, to any

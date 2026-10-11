@@ -21,6 +21,8 @@ jobs:
           test -f favicon.svg
       - name: Check JavaScript syntax
         run: node --check app.js
+      - name: Test supported image geometries
+        run: node tests/geometry.test.cjs
       - name: Verify local-only processing
         run: |
           if grep -En 'fetch\(|XMLHttpRequest|sendBeacon|WebSocket' app.js; then
